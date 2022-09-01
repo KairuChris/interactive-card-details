@@ -1,0 +1,310 @@
+@forward 'globals';
+
+$white: hsl(0, 0%, 100%);
+$lightGrayishViolet: hsl(270, 3%, 87%);
+$darkGrayishViolet: hsl(279, 6%, 55%);
+$veryDarkViolet: hsl(278, 68%, 11%);
+$inputError: hsl(0, 100%, 66%);
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+aside{
+    height: 230px;
+    background-image: url('/bg-main-mobile.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 80px;
+    
+    .card-container{
+        position: relative;
+        width: 375px;
+        height: 240px;
+
+        .card-back{
+            width: 280px;
+            height: 200px;
+            background-image: url('/bg-card-back.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 0;
+            
+            #CVC{
+                margin-bottom: 50px;
+                letter-spacing: 1px;
+                margin-right: 35px;
+                color: $white;
+                font-size: 10px;
+            }
+        }
+        .card-front{
+            width: 273px;
+            height: 150px;
+            background-image: url('/bg-card-front.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 1;
+            position: absolute;
+            top: 117px;
+            left: 20px;
+            padding: 15px;
+            box-shadow: 0px 15px 20px hsla(0, 0, 0, .2);
+            border-radius: 7px;
+
+            #card-logo{
+                height: 25px;
+                margin-bottom: 40px;
+            }
+
+            #number{
+                color: $white;
+                font-size: 17px;
+                letter-spacing: 2px;
+                margin-bottom: 10px;
+            }
+    
+            .name-and-expiration{
+                display: flex;
+                font-size: 11px;
+                color: $lightGrayishViolet;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+main{
+    padding: 0px 20px 35px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    position: relative;
+
+    #form{
+        width: 330px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        label{
+            font-size: 12px;
+            font-weight: 500;
+            color: $veryDarkViolet;
+            letter-spacing: 1px;
+        }
+        input{
+            border: 2px solid $lightGrayishViolet;
+            padding: 10px 10px;
+            width: 330px;
+            border-radius: 6px;
+            color: $veryDarkViolet;
+            margin-bottom: 20px;
+            margin-top: 5px;
+            &:focus{
+                //gradient border
+                outline: none;
+                background: 
+                linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)) padding-box,
+                linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%)) border-box;
+                border-radius: 6px;
+                border: 2px solid transparent;
+            }
+        }
+
+         // for removing spinners 
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+    
+        /* Firefox */
+        input[type=number] {
+        -moz-appearance: textfield;
+        }
+
+        .format-error{
+            font-size: 12px;
+            margin-top: -15px;
+            margin-bottom: 20px;
+            color: $inputError;
+            display: none;
+        }
+        .blank{
+            font-size: 12px;
+            margin-top: -15px;
+            margin-bottom: 20px;
+            color: $inputError;
+            display: none;
+        }
+        .error{
+            display: block;
+        }
+        .error-border{
+            border: 2px solid hsl(0, 100%, 66%);
+        }
+        .format-error-border{
+            border: 2px solid hsl(0, 100%, 66%);
+        }
+        .form-exp{
+            display: flex;
+            margin-top: -10px;
+
+            .exp{
+                width: 75px;
+                color: $veryDarkViolet;
+                margin-right: 10px;
+                border-radius: 8px;
+            }
+            #card-cvc{
+                width: 160px;
+                color: $veryDarkViolet;
+            }
+            
+        }
+        #submit-btn{
+            width: 330px;
+            padding: 15px 0px;
+            border: none;
+            background-color: $veryDarkViolet;
+            color: $white;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: .3s;
+            &:hover{
+                background-color: hsl(279, 69%, 26%);
+            }
+        }
+    }
+}
+
+.complete-state{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+    img{
+        margin-bottom: 30px;
+    }
+    h1{
+        letter-spacing: 5px;
+        font-weight: 100;
+        color: $veryDarkViolet;
+        margin-bottom: 10px;
+    }
+    h5{
+        color: $darkGrayishViolet;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-bottom: 40px;
+    }
+
+
+    #continue{
+        width: 330px;
+        padding: 15px 0px;
+        border: none;
+        background-color: $veryDarkViolet;
+        color: $lightGrayishViolet;
+        font-weight: 500;
+        font-size: 15px;
+        letter-spacing: 1px;
+        border-radius: 7px;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover{
+            background-color: hsl(279, 69%, 26%);
+        }
+    }
+}
+.footer{
+    position: absolute;
+    bottom: -45px;
+    a{
+        text-decoration: none;
+        color: $veryDarkViolet;
+    }
+    color: $darkGrayishViolet;
+    text-align: center;
+}
+
+@media (min-width:1280px){
+    #app{
+        display: flex;
+        aside{
+            height: 100vh;
+            width: 650px;
+            margin-bottom: 0;
+            background-image: url('/bg-main-desktop.png');
+
+            .card-container{
+            
+
+                .card-front{
+                    top: 140px;
+                    left: 125px;
+                    width: 390px;
+                    height: 214px;
+                    padding: 25px 25px 20px 25px;
+                    #card-logo{
+                        height: 40px;
+                        margin-bottom: 50px;
+                    }
+                    #number{
+                        font-size: 26.7px;
+                        margin-bottom: 20px;
+                    }
+                    .name-and-expiration{
+                        font-size: 13px;
+                    }
+                }
+                .card-back{
+                    width: 390px;
+                    height: 214px;
+                    top: 390px;
+                    left: 210px;
+                    box-shadow: 0px 15px 50px 20px hsla(0, 0, 0, .1);
+                    border-radius: 9px;
+                    
+                    #CVC{
+                        margin-bottom: 3px;
+                        margin-right: 45px;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        main{
+            justify-content: center;
+            margin-bottom: 70px;
+            
+           #form{
+            
+            input{
+                margin-bottom: 30px;
+            }
+
+            #submit-btn{
+                margin-top: 10px;
+            }
+           }
+        }
+    }
+   
+}

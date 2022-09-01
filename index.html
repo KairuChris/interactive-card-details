@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-32x32.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet"> 
+    <title>Interactive Card Details | Kyle Christopher Guiang</title>
+  </head>
+  <body>
+    <div id="app">
+      <aside>
+        <div class="card-container">
+          <div class="card-back">
+            <p id="CVC">000</p>
+          </div>
+          <div class="card-front">
+            <img src="/card-logo.svg" alt="" id="card-logo">
+            <p id="number">0000 0000 0000 0000</p>
+            <div class="name-and-expiration">
+              <p id="name">JANE APPLESEED</p>
+              <p id="expiration"><span id="month">00</span>/<span id="year">00</span> </p>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <main>
+        <form id="form">
+          <label>CARDHOLDER NAME</label>
+          <input type="text" name="name" id="cardholder-name" placeholder="e.g. Jane Appleseed">
+          <p class="blank">Can't be blank</p>
+          <label>CARD NUMBER</label>
+          <input type="text" name="number" id="card-number" placeholder="e.g. 1234 5678 9123 0000" maxlength="19">
+          <p class="blank">Can't be blank</p>
+          <p class="format-error">Wrong format, numbers only</p>
+          <div class="form-exp">
+            <div>
+              <label>EXP. DATE</label>
+              <input type="text" name="expiration-month" id="card-exp-mm" placeholder="MM" class="exp" maxlength="2" >
+              <p class="blank" id="blankError">Can't be blank</p>
+              <p class="format-error" id="error-format">Wrong format, numbers only</p>
+            </div>
+            <div>
+              <label>(MM/YY)</label>
+              <input type="text" name="expiration-year" id="card-exp-yy" placeholder="YY" class="exp" maxlength="2">
+            </div>
+            <div>
+              <label>CVC</label>
+              <input type="text" name="cvc" id="card-cvc" placeholder="e.g. 123" maxlength="3">
+              <p class="blank">Can't be blank</p>
+              <p class="format-error">Wrong format, numbers only</p>
+            </div>
+          </div>
+          <button id="submit-btn">Confirm</button>
+        </form>
+        <div class="complete-state">
+          <img src="/icon-complete.svg" alt="">
+          <h1>THANK YOU!</h1>
+          <h5>We've added your card details</h5>
+          <button id="continue">Continue</button>
+        </div>
+        <div class="footer">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+          Coded by <a href="https://www.frontendmentor.io/profile/KairuChris" target="_blank">Kyle Christopher Guiang</a>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
