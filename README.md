@@ -31,7 +31,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github repository](https://github.com/KairuChris/interactive-card-details)
-- Live Site URL: [Github Pages](https://your-live-site-url.com)
+- Live Site URL: [Github Pages](https://kairuchris.github.io/interactive-card-details/)
 
 ## My process
 
